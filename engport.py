@@ -1,9 +1,9 @@
 import json
-from detect_language import detect
+from langdetect import detect
 from langdetect.lang_detect_exception import LangDetectException
 
 # Load the messages from the previously saved JSON file
-with open('itsfael_messages.json', 'r') as file:
+with open('birdaum_messages.json', 'r') as file:
     user_messages = json.load(file)
 
 # Initialize counters for English and Portuguese messages
@@ -31,6 +31,6 @@ else:
     english_percent = portuguese_percent = 0
 
 # Print the results
-print("Percentage of itsfael's messages in English vs. Portuguese:")
+print("Percentage of birdaum's messages in English vs. Portuguese:")
 print(f"English: {english_percent:.2f}%")
 print(f"Portuguese: {portuguese_percent:.2f}%")

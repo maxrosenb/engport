@@ -31,9 +31,10 @@ for channel_id, messages in data['data'].items():
             if 'm' in message_details:
                 user_messages.append(message_details['m'])
 
-# Display the messages
-for message in user_messages:
-    print(message)
+# Display the number of messages
+print(f"Total number of messages sent by 'birdaum': {len(user_messages)}")
+
+
 
 # Optional: Save the extracted messages to a new JSON file
 with open('birdaum_messages.json', 'w') as outfile:
