@@ -1,5 +1,5 @@
 import json
-from langdetect import detect
+from detect_language import detect
 from langdetect.lang_detect_exception import LangDetectException
 
 # Load the messages from the previously saved JSON file
