@@ -4,30 +4,20 @@ import json
 with open('data.json', 'r') as file:
     data = json.load(file)
 
-# Get the user ID for 'birdaum' from the users dictionary
+# Get the user ID for 'mangoingp' from the users dictionary
 user_id_map = {user_id: user_data['name'] for user_id, user_data in data['meta']['users'].items()}
 userindex = data['meta']['userindex']
-birdaum_id = None
+mangoingp_id = '608685586630311946'
 
-# Find the user ID for 'birdaum'
-for user_id, user_data in data['meta']['users'].items():
-    if user_data['name'] == 'birdaum':
-        birdaum_id = user_id
-        break
+# Find the index of 'mangoingp' in userindex
+mangoingp_index = userindex.index(mangoingp_id)
 
-if birdaum_id is None:
-    print("User 'birdaum' not found.")
-    exit()
-
-# Find the index of 'birdaum' in userindex
-birdaum_index = userindex.index(birdaum_id)
-
-# Extract messages for 'birdaum' by iterating through the 'data' section
+# Extract messages for 'mangoingp' by iterating through the 'data' section
 user_messages = []
 
 for channel_id, messages in data['data'].items():
     for message_id, message_details in messages.items():
-        if message_details['u'] == birdaum_index:
+        if message_details['u'] == mangoingp_index:
             if 'm' in message_details:
                 user_messages.append(message_details['m'])
 
@@ -36,5 +26,5 @@ for message in user_messages:
     print(message)
 
 # Optional: Save the extracted messages to a new JSON file
-with open('birdaum_messages.json', 'w') as outfile:
+with open('mangoingp_messages.json', 'w') as outfile:
     json.dump(user_messages, outfile, indent=4)
